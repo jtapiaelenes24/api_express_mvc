@@ -1,3 +1,4 @@
+const db = require("../database/connection.js");
 class StudentsController {
   constructor() {}
 
@@ -6,7 +7,8 @@ class StudentsController {
   }
 
   getDetails(req, res) {
-    res.json({ msg: "Get details of the student from class" });
+    const { id } = req.params;
+    res.json({ msg: `Get details of the student from class with ID ${id}` });
   }
 
   insert(req, res) {
