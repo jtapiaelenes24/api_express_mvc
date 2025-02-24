@@ -63,7 +63,7 @@ class StudentsController {
             res.status(400).send(err);
           }
           if (rows.affectedRows == 1) {
-            res.status(200).json({ answer: "Register updated succesfully." });
+            res.status(200).json({ answer: "Teacher updated succesfully." });
           }
         }
       );
@@ -83,7 +83,7 @@ class StudentsController {
           if (err) {
             res.status(400).send(err);
           }
-          res.status(200).json({ answer: "User deleted succesfully." });
+          res.status(200).json({ answer: "Teacher deleted succesfully." });
         }
       );
     } catch (err) {
