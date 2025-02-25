@@ -5,6 +5,7 @@ const router = express.Router();
 router.get("/", coursesController.get);
 
 router.post("/", coursesController.insert);
+router.post("/registerStudent", coursesController.registerStudent);
 
 router
   .route("/:id")

@@ -65,7 +65,7 @@ class CoursesController {
             res.status(400).send(err);
           }
           if (rows.affectedRows == 1) {
-            res.status(200).json({ answer: "Course updated succesfully." });
+            res.status(200).json({ answer: "Course succesfully updated." });
           }
         }
       );
@@ -85,7 +85,30 @@ class CoursesController {
           if (err) {
             res.status(400).send(err);
           }
-          res.status(200).json({ answer: "Course deleted succesfully." });
+          res.status(200).json({ answer: "Course succesfully deleted." });
+        }
+      );
+    } catch (err) {
+      res.status(500).send(err.message);
+    }
+  }
+
+  registerStudent(req, res) {
+    try {
+      const { course_id, student_id } = req.body;
+      db.query(
+        `INSERT INTO courses_students
+        (course_id, student_id)
+        VALUES(?, ?);`,
+        [course_id, student_id],
+        (err, rows) => {
+          if (err) {
+            res.status(400).send(err);
+          } else {
+            res
+              .status(201)
+              .json({ answer: "Student successfully registered in a course." });
+          }
         }
       );
     } catch (err) {

@@ -65,7 +65,7 @@ class TeachersController {
             res.status(400).send(err);
           }
           if (rows.affectedRows == 1) {
-            res.status(200).json({ answer: "Teacher updated succesfully." });
+            res.status(200).json({ answer: "Teacher succesfully updated." });
           }
         }
       );
@@ -85,7 +85,7 @@ class TeachersController {
           if (err) {
             res.status(400).send(err);
           }
-          res.status(200).json({ answer: "Teacher deleted succesfully." });
+          res.status(200).json({ answer: "Teacher succesfully deleted." });
         }
       );
     } catch (err) {
